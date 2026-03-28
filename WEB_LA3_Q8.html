@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        input { padding: 5px; width: 100px; }
+        #tableOutput { margin-top: 15px; line-height: 1.6; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>Multiplication Table (Do-While)</h2>
+    Enter a number: <input type="number" id="numInput">
+    <button onclick="generateTable()">Generate Table</button>
+    
+    <div id="tableOutput"></div>
+
+    <script>
+    function generateTable() {
+        var num = parseInt(document.getElementById("numInput").value);
+        var display = document.getElementById("tableOutput");
+        var i = 1;
+        var result = "";
+
+        if (isNaN(num)) {
+            display.innerHTML = "Please enter a valid number.";
+            return;
+        }
+
+        do {
+            var product = num * i;
+            result += num + " x " + i + " = " + product + "<br>";
+            i++;
+        } while (i <= 10);
+
+        display.innerHTML = result;
+    }
+    </script>
+    <p>MAYUR R KENI 24BCE0686</p>
+</body>
+</html>

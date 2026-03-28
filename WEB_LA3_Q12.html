@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Skills Validation</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        fieldset { border: 2px solid #007bff; padding: 15px; width: 300px; }
+        legend { font-weight: bold; color: #007bff; }
+        .error { color: red; font-weight: bold; }
+        .success { color: green; font-weight: bold; }
+        #displayMsg { margin-top: 15px; }
+    </style>
+    <script>
+        function validateSkills() {
+            var skillsCBs = document.getElementsByName("skills");
+            var selectedCount = 0;
+            var selectedValues = "";
+            var msgArea = document.getElementById("displayMsg");
+
+            for (let i = 0; i < skillsCBs.length; i++) {
+                if (skillsCBs[i].checked) {
+                    selectedCount++;
+                    selectedValues += "<li>" + skillsCBs[i].value + "</li>";
+                }
+            }
+
+            if (selectedCount >= 3) {
+                msgArea.innerHTML = "<span class='success'>Validation Successful!</span><ul>" + selectedValues + "</ul>";
+            } else {
+                msgArea.innerHTML = "<span class='error'>Error: Please select at least 3 skills.</span>";
+            }
+        }
+    </script>
+</head>
+<body>
+    <form id="skillsForm">
+        <fieldset>
+            <legend>Select Your Skills (Min 3)</legend>
+            <input type="checkbox" name="skills" value="HTML"> HTML<br>
+            <input type="checkbox" name="skills" value="CSS"> CSS<br>
+            <input type="checkbox" name="skills" value="JavaScript"> JavaScript<br>
+            <input type="checkbox" name="skills" value="Python"> Python<br>
+            <input type="checkbox" name="skills" value="SQL"> SQL<br><br>
+            <button type="button" onclick="validateSkills()">Submit Skills</button>
+        </fieldset>
+    </form>
+    <div id="displayMsg"></div>
+    <p>MAYUR R KENI 24BCE0686</p>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <input type="text" id="fname" placeholder="First Name">
+    <input type="text" id="lname" placeholder="Last Name">
+    <button onclick="generateEmail()">Generate</button>
+    <p id="emailResult"></p>
+    <script>
+    function generateEmail() {
+        var fname = document.getElementById("fname").value.toLowerCase();
+        var lname = document.getElementById("lname").value.toLowerCase();
+        document.getElementById("emailResult").innerHTML = fname + "." + lname + "@vitstudent.ac.in";
+    }
+    </script>
+</body>
+</html>

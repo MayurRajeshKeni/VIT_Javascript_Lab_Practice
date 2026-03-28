@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .subject-group { margin-bottom: 15px; border: 1px solid #ccc; padding: 15px; width: 250px; }
+        #result { margin-top: 15px; font-weight: bold; color: #007bff; }
+    </style>
+</head>
+<body>
+    <h2>Select Subjects</h2>
+    <div class="subject-group">
+        <input type="checkbox" name="subj" value="Mathematics"> Mathematics<br>
+        <input type="checkbox" name="subj" value="Physics"> Physics<br>
+        <input type="checkbox" name="subj" value="Chemistry"> Chemistry<br>
+        <input type="checkbox" name="subj" value="Computer Science"> Computer Science
+    </div>
+    
+    <button onclick="countSubjects()">Show Selection</button>
+    
+    <div id="result"></div>
+
+    <script>
+    function countSubjects() {
+        var checkboxes = document.getElementsByName("subj");
+        var selectedSubjects = [];
+        var count = 0;
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                selectedSubjects.push(checkboxes[i].value);
+                count++;
+            }
+        }
+
+        var display = document.getElementById("result");
+        if (count > 0) {
+            display.innerHTML = "Total Selected: " + count + "<br>" + 
+                                "Subjects: " + selectedSubjects.join(", ");
+        } else {
+            display.innerHTML = "No subjects selected.";
+        }
+    }
+    </script>
+    <p>MAYUR R KENI 24BCE0686</p>
+</body>
+</html>

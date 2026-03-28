@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="rectContainer">
+        Width: <input type="number" id="userWidth" step="0.1"><br><br>
+        Height: <input type="number" id="userHeight" step="0.1"><br><br>
+        <button onclick="calculateArea()">Calculate Area</button>
+        <p id="resultDisplay"></p>
+    </div>
+    <script>
+    function calculateArea() {
+        var rectWidth = document.getElementById("userWidth").value;
+        var rectHeight = document.getElementById("userHeight").value;
+        
+        var intWidth = Math.round(rectWidth);
+        var intHeight = Math.round(rectHeight);
+        var integerArea = intWidth * intHeight;
+
+        var floatWidth = parseFloat(rectWidth);
+        var floatHeight = parseFloat(rectHeight);
+        var floatArea = floatWidth * floatHeight;
+
+        document.getElementById("resultDisplay").innerHTML = 
+            "As Integers: " + intWidth + " x " + intHeight + " = " + integerArea + "<br>" +
+            "As Floats: " + floatWidth + " x " + floatHeight + " = " + floatArea;
+    }
+    </script>
+</body>
+</html>

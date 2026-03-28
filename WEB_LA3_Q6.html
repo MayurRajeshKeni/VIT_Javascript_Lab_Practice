@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Information System</title>
+    <style>
+    body { font-family: sans-serif; padding: 20px; }
+    
+    fieldset { width: 350px; border: 1px solid #007bff; }
+    
+    legend { font-weight: bold; color: #007bff; }
+    
+    .form-group { margin-bottom: 10px; }
+    
+    label { display: inline-block; width: 100px; }
+    
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    
+    th, td { border: 1px solid black; padding: 8px; text-align: left; }
+    
+    th { background-color: #007bff; color: white; }
+</style>
+    <script>
+        var studentRegistry = [];
+
+        function saveStudentRecord() {
+            var name = document.getElementById("studentName").value;
+            var regNo = document.getElementById("regNo").value;
+            var dept = document.getElementById("department").value;
+
+            if (name === "" || regNo === "") {
+                alert("Please fill in required fields.");
+                return;
+            }
+
+            var student = {
+                sName: name,
+                sReg: regNo,
+                sDept: dept,
+                getDisplayInfo: function() {
+                    return this.sName + " [" + this.sReg + "]";
+                }
+            };
+
+            studentRegistry.push(student);
+            renderTable(student);
+            resetForm();
+        }
+
+        function renderTable(obj) {
+            var table = document.getElementById("studentTable").getElementsByTagName('tbody')[0];
+            var row = table.insertRow();
+            
+            row.insertCell(0).innerHTML = obj.getDisplayInfo();
+            row.insertCell(1).innerHTML = obj.sDept;
+            row.insertCell(2).innerHTML = new Date().toLocaleDateString();
+        }
+
+        function resetForm() {
+            document.getElementById("stuForm").reset();
+            document.getElementById("studentName").focus();
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Student Registration</legend>
+        <form id="stuForm">
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" id="studentName">
+            </div>
+            <div class="form-group">
+                <label>Reg No:</label>
+                <input type="text" id="regNo">
+            </div>
+            <div class="form-group">
+                <label>Department:</label>
+                <input type="text" id="department">
+            </div>
+            <div class="actions">
+                <button type="button" onclick="saveStudentRecord()">Register Student</button>
+                <button type="button" onclick="resetForm()">Clear Form</button>
+            </div>
+        </form>
+    </fieldset>
+
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>Student Details</th>
+                <th>Department</th>
+                <th>Registration Date</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+</html>

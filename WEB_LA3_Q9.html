@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .radio-group { margin-bottom: 15px; border: 1px solid #ccc; padding: 10px; width: 200px; }
+        #result { margin-top: 10px; font-weight: bold; color: violet; }
+    </style>
+</head>
+<body>
+    <h2>Select a Color</h2>
+    <div class="radio-group">
+        <input type="radio" name="color" value="Red" id="r1"> <label for="r1">Red</label><br>
+        <input type="radio" name="color" value="Green" id="r2"> <label for="r2">Green</label><br>
+        <input type="radio" name="color" value="Blue" id="r3"> <label for="r3">Blue</label>
+    </div>
+    
+    <button onclick="checkSelection()">Display Selection</button>
+    <p id="result"></p>
+
+    <script>
+    function checkSelection() {
+        var colors = document.getElementsByName("color");
+        var display = document.getElementById("result");
+        var selectedValue = "";
+
+        for (var i = 0; i < colors.length; i++) {
+            if (colors[i].checked) {
+                selectedValue = colors[i].value;
+                break;
+            }
+        }
+
+        if (selectedValue !== "") {
+            display.innerHTML = "You selected: " + selectedValue;
+        } else {
+            display.innerHTML = "Please select a color.";
+        }
+    }
+    </script>
+    <p>MAYUR R KENI 24BCE0686</p>
+</body>
+</html>

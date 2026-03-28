@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Print 1 to N</h2>
+    <input type="number" id="nVal">
+    <button onclick="runLoop()">Print</button>
+    <div id="out"></div>
+    <script>
+    function runLoop() {
+        var n = parseInt(document.getElementById("nVal").value);
+        var i = 1, res = "";
+        while(i <= n) {
+            res += i + " ";
+            i++;
+        }
+        document.getElementById("out").innerHTML = res;
+    }
+    </script>
+    <p>MAYUR R KENI 24BCE0686</p>
+</body>
+</html>

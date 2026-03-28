@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Styling App</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        
+        #textMessage { 
+            padding: 20px; 
+            border: 1px solid #ccc; 
+            margin-bottom: 20px; 
+            font-size: 18px; 
+            width: 300px;
+            text-align: center;
+        }
+
+        /* Predefined CSS Classes */
+        .bold-style { font-weight: bold; }
+        .italic-style { font-style: italic; }
+        .caps-style { font-variant: small-caps; }
+        .reset-style { font-weight: normal; font-style: normal; font-variant: normal; }
+
+        fieldset { width: 340px; border: 2px solid #007bff; }
+        legend { font-weight: bold; color: #007bff; }
+        button { margin: 5px; padding: 8px; cursor: pointer; }
+    </style>
+    <script>
+        function applyStyle(styleName) {
+            var msg = document.getElementById("textMessage");
+            msg.className = styleName;
+        }
+    </script>
+</head>
+<body>
+
+    <div id="textMessage">Sample Text Message</div>
+
+    <fieldset>
+        <legend>Text Styling Controls</legend>
+        <button onclick="applyStyle('bold-style')">Bold</button>
+        <button onclick="applyStyle('italic-style')">Italic</button>
+        <button onclick="applyStyle('caps-style')">Small-Caps</button>
+        <button onclick="applyStyle('reset-style')">Reset</button>
+    </fieldset>
+
+    <p>MAYUR R KENI 24BCE0686</p>
+</body>
+</html>

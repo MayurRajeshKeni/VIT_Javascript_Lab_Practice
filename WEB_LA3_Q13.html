@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Order Form</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        fieldset { border: 1px solid #444; margin-bottom: 15px; width: 300px; }
+        legend { font-weight: bold; }
+        #totalArea { margin-top: 20px; font-size: 1.2em; color: #d9534f; }
+    </style>
+    <script>
+        function calculateTotal() {
+            var items = document.getElementsByName("product");
+            var total = 0;
+
+            for (let item of items) {
+                if (item.checked) {
+                    total += parseFloat(item.getAttribute("data-price"));
+                }
+            }
+
+            document.getElementById("totalArea").innerHTML = "Total Amount: &#8377; " + total.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Electronics</legend>
+            <input type="checkbox" name="product" data-price="500"> Mouse (&#8377; 500)<br>
+            <input type="checkbox" name="product" data-price="1200"> Keyboard (&#8377; 1200)
+        </fieldset>
+
+        <fieldset>
+            <legend>Stationery</legend>
+            <input type="checkbox" name="product" data-price="50"> Pen (&#8377; 50)<br>
+            <input type="checkbox" name="product" data-price="150"> Notebook (&#8377; 150)
+        </fieldset>
+
+        <button type="button" onclick="calculateTotal()">Calculate Total</button>
+    </form>
+
+    <div id="totalArea">Total Amount: &#8377; 0.00</div>
+    <p>MAYUR R KENI 24BCE0686</p>
+</body>
+</html>

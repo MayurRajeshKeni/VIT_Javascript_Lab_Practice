@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Font Tool</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        
+        #previewBox {
+            width: 300px;
+            height: 100px;
+	    text-align: center;
+            border: 1px solid black;
+            margin-bottom: 20px;
+        }
+
+        fieldset { width: 350px; border: 1px solid blue; }
+        legend { font-weight: bold; }
+    </style>
+    <script>
+        function updateStyles() {
+            var text = document.getElementById("previewBox");
+            var size = document.getElementById("fontSize").value;
+            var textColor = document.getElementById("textColor").value;
+            var bgColor = document.getElementById("bgColor").value;
+
+            text.style.fontSize = size + "px";
+            text.style.color = textColor;
+            text.style.backgroundColor = bgColor;
+        }
+    </script>
+</head>
+<body>
+
+    <div id="previewBox">Sample Text</div>
+
+    <fieldset>
+        <legend>Controls</legend>
+        
+        Size: <input type="range" id="fontSize" min="10" max="80" value="20" oninput="updateStyles()"><br><br>
+        
+        Text Color: <input type="color" id="textColor" oninput="updateStyles()"><br><br>
+        
+        BG Color: <input type="color" id="bgColor" value="#ffffff" oninput="updateStyles()">
+
+    </fieldset>
+
+    <p>MAYUR R KENI 24BCE0686</p>
+</body>
+</html>

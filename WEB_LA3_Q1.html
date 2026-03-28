@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="container">
+        <p id="msg">Initial Text</p>
+        <button onclick="displayHello()">Click Me</button>
+    </div>
+    <script>
+    function displayHello() {
+        var element = document.getElementById("msg");
+        element.outerHTML = "<h1 id='msg'>Hello, world!</h1>";
+    }
+    </script>
+</body>
+</html>
